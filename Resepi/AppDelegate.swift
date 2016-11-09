@@ -22,6 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if PFUser.current() != nil {
             print("There is a current user")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let homeNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
+            homeNavigationController.tabBarItem.title = "Recipes"
+            
+            let postNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
+            postNavigationController.tabBarItem.title = "Data"
+            
+            let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            userProfileNavigationController.tabBarItem.title = "Profile"
+            
+            let tabBarController = UITabBarController()
+            tabBarController.viewControllers = [homeNavigationController, postNavigationController, userProfileNavigationController]
+            self.window?.rootViewController = tabBarController
+            
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Log In User"), object: nil, queue: OperationQueue.main) { (NSNotification) -> Void in
@@ -42,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [homeNavigationController, postNavigationController, userProfileNavigationController]
             self.window?.rootViewController = tabBarController
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Log Out User"), object: nil, queue: OperationQueue.main) { (NSNotification) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
         }
         
         return true

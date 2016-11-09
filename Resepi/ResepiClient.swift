@@ -24,20 +24,19 @@ class ResepiClient: NSObject {
     
     class func signIn(username: String, password: String, vc: LoginViewController)
     {
-        do {
-            print("signing in...")
-            PFUser.logInWithUsername(inBackground: username, password: password, block: { (user: PFUser?, error: Error?) in
-                if (user != nil) {
-                    print("logged in successfully")
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "Log In User"), object: nil)
-                }
-                
-                if (error != nil) {
-                    print(error?.localizedDescription ?? "sign up failed")
-                }
-                
-            })
-        }
+        print("signing in...")
+        PFUser.logInWithUsername(inBackground: username, password: password, block: { (user: PFUser?, error: Error?) in
+            if (user != nil) {
+                print("logged in successfully")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "Log In User"), object: nil)
+            }
+            
+            if (error != nil) {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle:UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    vc.present(alert, animated: true, completion: nil)
+            }
+        })
     }
     
     class func signUp(firstName: String, lastName: String, username: String, password: String)
@@ -61,7 +60,7 @@ class ResepiClient: NSObject {
     
     class func logout()
     {
-        //PFUser.logOut()
-        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Log Out User"), object: nil)
+        PFUser.logOut()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Log Out User"), object: nil)
     }
 }

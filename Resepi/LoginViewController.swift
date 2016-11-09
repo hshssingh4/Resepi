@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -34,6 +38,15 @@ class LoginViewController: UIViewController {
     }
     */
     
+    @IBAction func onScreenTapGesture(_ sender: UITapGestureRecognizer) {
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+    }
+    
+    @IBAction func onScreenSwipeGesture(_ sender: UISwipeGestureRecognizer) {
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+    }
     
     @IBAction func onLoginButton(_ sender: Any) {
         ResepiClient.signIn(username: usernameField.text!, password: passwordField.text!, vc: self)

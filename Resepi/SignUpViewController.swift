@@ -44,6 +44,22 @@ class SignUpViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onScreenTapGesture(_ sender: UITapGestureRecognizer) {
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        verifyPasswordField.resignFirstResponder()
+    }
+    
+    @IBAction func onScreenSwipeGesture(_ sender: UISwipeGestureRecognizer) {
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        verifyPasswordField.resignFirstResponder()
+    }
+    
     @IBAction func onSignUpButton(_ sender: Any) {
         let firstName = firstNameField.text!
         let lastName = lastNameField.text!
@@ -54,6 +70,9 @@ class SignUpViewController: UIViewController {
         if (!firstName.isEmpty && !lastName.isEmpty && !username.isEmpty && !password.isEmpty && !verifyPassword.isEmpty && password == verifyPassword) {
             ResepiClient.signUp(firstName: firstName, lastName: lastName, username: username, password: password)
             print("sign up passed successfully")
+            
+            
+            
             dismiss(animated: true
                 , completion: nil)
         }
