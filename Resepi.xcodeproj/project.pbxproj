@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF1267421DD2BD9500D5775D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1267411DD2BD9500D5775D /* AppDelegate.swift */; };
+		CF1267441DD2BD9500D5775D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1267431DD2BD9500D5775D /* ViewController.swift */; };
+		CF1267471DD2BD9500D5775D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1267451DD2BD9500D5775D /* Main.storyboard */; };
+		CF1267491DD2BD9500D5775D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1267481DD2BD9500D5775D /* Assets.xcassets */; };
+		CF12674C1DD2BD9500D5775D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF12674A1DD2BD9500D5775D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CF12673E1DD2BD9500D5775D /* Resepi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resepi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1267411DD2BD9500D5775D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF1267431DD2BD9500D5775D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF1267461DD2BD9500D5775D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF1267481DD2BD9500D5775D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF12674B1DD2BD9500D5775D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF12674D1DD2BD9500D5775D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF12673B1DD2BD9500D5775D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF1267351DD2BD9400D5775D = {
+			isa = PBXGroup;
+			children = (
+				CF1267401DD2BD9500D5775D /* Resepi */,
+				CF12673F1DD2BD9500D5775D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF12673F1DD2BD9500D5775D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF12673E1DD2BD9500D5775D /* Resepi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1267401DD2BD9500D5775D /* Resepi */ = {
+			isa = PBXGroup;
+			children = (
+				CF1267411DD2BD9500D5775D /* AppDelegate.swift */,
+				CF1267431DD2BD9500D5775D /* ViewController.swift */,
+				CF1267451DD2BD9500D5775D /* Main.storyboard */,
+				CF1267481DD2BD9500D5775D /* Assets.xcassets */,
+				CF12674A1DD2BD9500D5775D /* LaunchScreen.storyboard */,
+				CF12674D1DD2BD9500D5775D /* Info.plist */,
+			);
+			path = Resepi;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF12673D1DD2BD9500D5775D /* Resepi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF1267501DD2BD9500D5775D /* Build configuration list for PBXNativeTarget "Resepi" */;
+			buildPhases = (
+				CF12673A1DD2BD9500D5775D /* Sources */,
+				CF12673B1DD2BD9500D5775D /* Frameworks */,
+				CF12673C1DD2BD9500D5775D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resepi;
+			productName = Resepi;
+			productReference = CF12673E1DD2BD9500D5775D /* Resepi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF1267361DD2BD9400D5775D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Harpreet Singh";
+				TargetAttributes = {
+					CF12673D1DD2BD9500D5775D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CF1267391DD2BD9500D5775D /* Build configuration list for PBXProject "Resepi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1267351DD2BD9400D5775D;
+			productRefGroup = CF12673F1DD2BD9500D5775D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF12673D1DD2BD9500D5775D /* Resepi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF12673C1DD2BD9500D5775D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF12674C1DD2BD9500D5775D /* LaunchScreen.storyboard in Resources */,
+				CF1267491DD2BD9500D5775D /* Assets.xcassets in Resources */,
+				CF1267471DD2BD9500D5775D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF12673A1DD2BD9500D5775D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF1267441DD2BD9500D5775D /* ViewController.swift in Sources */,
+				CF1267421DD2BD9500D5775D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CF1267451DD2BD9500D5775D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF1267461DD2BD9500D5775D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF12674A1DD2BD9500D5775D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF12674B1DD2BD9500D5775D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF12674E1DD2BD9500D5775D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF12674F1DD2BD9500D5775D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF1267511DD2BD9500D5775D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Resepi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Thardak.Resepi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CF1267521DD2BD9500D5775D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Resepi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Thardak.Resepi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF1267391DD2BD9500D5775D /* Build configuration list for PBXProject "Resepi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF12674E1DD2BD9500D5775D /* Debug */,
+				CF12674F1DD2BD9500D5775D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF1267501DD2BD9500D5775D /* Build configuration list for PBXNativeTarget "Resepi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF1267511DD2BD9500D5775D /* Debug */,
+				CF1267521DD2BD9500D5775D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF1267361DD2BD9400D5775D /* Project object */;
+}
