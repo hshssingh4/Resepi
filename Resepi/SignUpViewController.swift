@@ -70,11 +70,14 @@ class SignUpViewController: UIViewController {
         if (!firstName.isEmpty && !lastName.isEmpty && !username.isEmpty && !password.isEmpty && !verifyPassword.isEmpty && password == verifyPassword) {
             ResepiClient.signUp(firstName: firstName, lastName: lastName, username: username, password: password)
             print("sign up passed successfully")
+            let alert = UIAlertController(title: "Signed Up", message: "Thanks for signing up with us. Enjoy!", preferredStyle:UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+                
+            self.present(alert, animated: true, completion: nil)
             
             
-            
-            dismiss(animated: true
-                , completion: nil)
         }
         else
         {
