@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Initialize Parse
+        ResepiClient.initializeParse()
+        
+        if PFUser.current() != nil {
+            print("There is a current user")
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Log In User"), object: nil, queue: OperationQueue.main) { (NSNotification) -> Void in
+            
+            print("you are logged in")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let homeNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
+            homeNavigationController.tabBarItem.title = "Recipes"
+
+            let postNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
+            postNavigationController.tabBarItem.title = "Data"
+            
+            let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            userProfileNavigationController.tabBarItem.title = "Profile"
+            
+            let tabBarController = UITabBarController()
+            tabBarController.viewControllers = [homeNavigationController, postNavigationController, userProfileNavigationController]
+            self.window?.rootViewController = tabBarController
+        }
+        
         return true
     }
 
