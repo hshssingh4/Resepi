@@ -212,20 +212,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u92-pq-5pz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u92-pq-5pz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uz-4F-AJK">
-                                        <rect key="frame" x="0.0" y="-64" width="375" height="277"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-1p-1fO">
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="603"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3uz-4F-AJK">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="256" id="Tvy-Ti-de4"/>
+                                                    <constraint firstAttribute="width" constant="375" id="aw1-lR-IM9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="py6-uG-9Zz">
+                                                <rect key="frame" x="0.0" y="256" width="375" height="347"/>
+                                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3v-5K-S0U">
+                                                <rect key="frame" x="8" y="264" width="92" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mI-dm-MsP">
+                                                <rect key="frame" x="8" y="293" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4mI-dm-MsP" secondAttribute="trailing" constant="8" id="138-CB-dTv"/>
+                                            <constraint firstItem="py6-uG-9Zz" firstAttribute="leading" secondItem="Yb9-1p-1fO" secondAttribute="leading" id="4kF-L9-jKz"/>
+                                            <constraint firstAttribute="bottom" secondItem="py6-uG-9Zz" secondAttribute="bottom" priority="250" id="9hD-va-onB"/>
+                                            <constraint firstItem="l3v-5K-S0U" firstAttribute="leading" secondItem="Yb9-1p-1fO" secondAttribute="leading" constant="8" id="G3t-Cz-Nsj"/>
+                                            <constraint firstItem="4mI-dm-MsP" firstAttribute="leading" secondItem="Yb9-1p-1fO" secondAttribute="leading" constant="8" id="Pjt-a0-gdp"/>
+                                            <constraint firstAttribute="trailing" secondItem="py6-uG-9Zz" secondAttribute="trailing" id="Skb-Kq-kfh"/>
+                                            <constraint firstItem="l3v-5K-S0U" firstAttribute="top" secondItem="3uz-4F-AJK" secondAttribute="bottom" constant="8" id="TDJ-uv-bCe"/>
+                                            <constraint firstItem="3uz-4F-AJK" firstAttribute="top" secondItem="Yb9-1p-1fO" secondAttribute="top" id="gge-92-d6J"/>
+                                            <constraint firstAttribute="trailing" secondItem="3uz-4F-AJK" secondAttribute="trailing" id="jUn-I5-WPR"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4mI-dm-MsP" secondAttribute="bottom" constant="10" id="pMz-0O-t8k"/>
+                                            <constraint firstItem="py6-uG-9Zz" firstAttribute="top" secondItem="3uz-4F-AJK" secondAttribute="bottom" id="tOO-Aq-n4W"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l3v-5K-S0U" secondAttribute="trailing" constant="8" id="ucg-qU-cmA"/>
+                                            <constraint firstItem="4mI-dm-MsP" firstAttribute="top" secondItem="l3v-5K-S0U" secondAttribute="top" constant="29" id="vPI-AC-Zn8"/>
+                                            <constraint firstItem="3uz-4F-AJK" firstAttribute="leading" secondItem="Yb9-1p-1fO" secondAttribute="leading" id="vlQ-hk-D1N"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Yb9-1p-1fO" firstAttribute="top" secondItem="u92-pq-5pz" secondAttribute="top" constant="-64" id="9GY-oI-3eX"/>
+                                    <constraint firstItem="Yb9-1p-1fO" firstAttribute="leading" secondItem="u92-pq-5pz" secondAttribute="leading" id="CcN-1p-ywD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yb9-1p-1fO" secondAttribute="bottom" id="KNv-rS-g3t"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yb9-1p-1fO" secondAttribute="trailing" id="W8Q-D8-sSC"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="stZ-aG-emq" firstAttribute="top" secondItem="u92-pq-5pz" secondAttribute="bottom" constant="-64" id="BJe-fc-7OB"/>
+                            <constraint firstAttribute="trailing" secondItem="u92-pq-5pz" secondAttribute="trailing" id="Jh3-KD-zId"/>
+                            <constraint firstItem="Yb9-1p-1fO" firstAttribute="height" secondItem="1t3-Ii-aAC" secondAttribute="height" priority="250" constant="-64" id="a5k-2n-unU"/>
+                            <constraint firstItem="u92-pq-5pz" firstAttribute="leading" secondItem="1t3-Ii-aAC" secondAttribute="leading" id="hwl-KO-kFJ"/>
+                            <constraint firstItem="u92-pq-5pz" firstAttribute="top" secondItem="1bf-f3-ik5" secondAttribute="bottom" id="jnt-e8-MGk"/>
+                            <constraint firstItem="Yb9-1p-1fO" firstAttribute="width" secondItem="1t3-Ii-aAC" secondAttribute="width" id="nGG-eo-Fj5"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="Yb9-1p-1fO" id="3ca-xE-feq"/>
+                        <outlet property="infoView" destination="py6-uG-9Zz" id="3c5-en-fge"/>
+                        <outlet property="ingredientsLabel" destination="4mI-dm-MsP" id="YP0-xl-x7k"/>
+                        <outlet property="recipeImageView" destination="3uz-4F-AJK" id="4pf-ud-wy4"/>
                         <outlet property="scrollView" destination="u92-pq-5pz" id="z3W-un-Mnd"/>
                     </connections>
                 </viewController>

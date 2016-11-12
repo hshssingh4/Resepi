@@ -33,15 +33,22 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let cell = sender as? UICollectionViewCell {
+            let indexPath = recipesCollectionView.indexPath(for: cell)
+            let recipe = dataManager.recipes[(indexPath?.row)!]
+            let detailsViewController = segue.destination as! RecipeDetailsViewController
+            
+            detailsViewController.recipe = recipe
+        }
     }
-    */
+    
     
     /**
      This method reads data from the databse and does everything to populate the
