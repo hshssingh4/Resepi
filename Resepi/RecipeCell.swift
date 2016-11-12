@@ -25,6 +25,15 @@ class RecipeCell: UICollectionViewCell {
                 self.recipeImageView.image = image
             }, failure: nil)
             
+            
+            // Also set the gradient colors
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = recipeImageView.bounds
+            gradientLayer.colors = ColorPalette.GradientColors.ClearBlack
+            gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+            gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+            recipeImageView.layer.sublayers?[0].removeFromSuperlayer()
+            recipeImageView.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
 }
