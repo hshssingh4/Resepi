@@ -17,25 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.shared.statusBarStyle = .lightContent
         // Initialize Parse
-        ResepiClient.initializeParse()
+        UserClient.initializeParse()
         
         if PFUser.current() != nil {
             print("There is a current user")
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let homeNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
-            homeNavigationController.tabBarItem.title = "Recipes"
+            let recipesNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
+            recipesNavigationController.tabBarItem.title = "Recipes"
+            recipesNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Home Icon")
             
-            let postNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
-            postNavigationController.tabBarItem.title = "Data"
+            
+            let dataNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
+            dataNavigationController.tabBarItem.title = "Data"
+            dataNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Data Icon")
             
             let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
             userProfileNavigationController.tabBarItem.title = "Profile"
+            userProfileNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Profile Icon")
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [homeNavigationController, postNavigationController, userProfileNavigationController]
+            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController, userProfileNavigationController]
             self.window?.rootViewController = tabBarController
             
         }
@@ -46,17 +51,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let homeNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
-            homeNavigationController.tabBarItem.title = "Recipes"
-
-            let postNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
-            postNavigationController.tabBarItem.title = "Data"
+            let recipesNavigationController = storyboard.instantiateViewController(withIdentifier: "RecipesNavigationController") as! UINavigationController
+            recipesNavigationController.tabBarItem.title = "Recipes"
+            recipesNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Home Icon")
+            
+            
+            let dataNavigationController = storyboard.instantiateViewController(withIdentifier: "DataNavigationController") as! UINavigationController
+            dataNavigationController.tabBarItem.title = "Data"
+            dataNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Data Icon")
             
             let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
             userProfileNavigationController.tabBarItem.title = "Profile"
+            userProfileNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Profile Icon")
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [homeNavigationController, postNavigationController, userProfileNavigationController]
+            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController, userProfileNavigationController]
             self.window?.rootViewController = tabBarController
         }
         

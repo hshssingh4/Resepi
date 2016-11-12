@@ -16,12 +16,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var verifyPasswordField: UITextField!
     
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstNameField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +28,6 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -68,7 +65,7 @@ class SignUpViewController: UIViewController {
         let verifyPassword = verifyPasswordField.text!
         
         if (!firstName.isEmpty && !lastName.isEmpty && !username.isEmpty && !password.isEmpty && !verifyPassword.isEmpty && password == verifyPassword) {
-            ResepiClient.signUp(firstName: firstName, lastName: lastName, username: username, password: password)
+            UserClient.signUp(firstName: firstName, lastName: lastName, username: username, password: password)
             print("sign up passed successfully")
             let alert = UIAlertController(title: "Signed Up", message: "Thanks for signing up with us. Enjoy!", preferredStyle:UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in

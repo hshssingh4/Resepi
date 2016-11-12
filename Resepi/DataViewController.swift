@@ -14,6 +14,8 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.barTintColor = ColorPalette.BrandColor
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ColorPalette.WhiteColor]
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +23,6 @@ class DataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

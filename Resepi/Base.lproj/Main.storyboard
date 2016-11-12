@@ -119,7 +119,7 @@
         <!--Recipes-->
         <scene sceneID="lnu-fN-j7E">
             <objects>
-                <viewController id="MMo-P7-0pz" customClass="RecipesViewController" customModule="Resepi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="MMo-P7-0pz" customClass="RecipesViewController" customModule="Resepi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8qh-Kq-N2V"/>
                         <viewControllerLayoutGuide type="bottom" id="WZQ-eu-F1z"/>
@@ -127,13 +127,100 @@
                     <view key="view" contentMode="scaleToFill" id="iD0-L1-xp7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IVp-ia-i0w">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ZPm-8o-QMU">
+                                    <size key="itemSize" width="357" height="258"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="RecipeCell" id="p2W-pp-HLq" customClass="RecipeCell" customModule="Resepi" customModuleProvider="target">
+                                        <rect key="frame" x="9" y="5" width="357" height="258"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="357" height="258"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-KY-YZn">
+                                                    <rect key="frame" x="8" y="8" width="341" height="242"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtW-Xe-fMt">
+                                                    <rect key="frame" x="11" y="183" width="338" height="67"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZJ-jp-Qhs">
+                                                    <rect key="frame" x="17" y="193" width="325" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yh-zf-XrF">
+                                                    <rect key="frame" x="17" y="221" width="17" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Source Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nw-Td-16L">
+                                                    <rect key="frame" x="38" y="221" width="304" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="AZJ-jp-Qhs" id="C19-1I-hlg"/>
+                                            <outlet property="recipeImageView" destination="XMC-KY-YZn" id="hhE-et-TuZ"/>
+                                            <outlet property="sourceNameLabel" destination="1nw-Td-16L" id="jno-05-GoX"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IVp-ia-i0w" secondAttribute="trailing" id="0OW-ij-jC5"/>
+                            <constraint firstItem="WZQ-eu-F1z" firstAttribute="top" secondItem="IVp-ia-i0w" secondAttribute="bottom" id="RJF-ce-tq6"/>
+                            <constraint firstItem="IVp-ia-i0w" firstAttribute="top" secondItem="8qh-Kq-N2V" secondAttribute="bottom" id="fMs-hQ-E43"/>
+                            <constraint firstItem="IVp-ia-i0w" firstAttribute="leading" secondItem="iD0-L1-xp7" secondAttribute="leading" id="fsm-5y-liq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipes" id="ehP-QS-MpN"/>
+                    <connections>
+                        <outlet property="recipesCollectionView" destination="IVp-ia-i0w" id="Ihx-uG-K93"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNd-Me-oMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="875"/>
+            <point key="canvasLocation" x="1592.8" y="874.81259370314854"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hFr-6z-GPd">
+            <objects>
+                <viewController id="Pzc-z4-3cV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eL9-ga-H8H"/>
+                        <viewControllerLayoutGuide type="bottom" id="P3H-zn-P4j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9vz-Rm-5L7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKv-IR-9g2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353" y="875"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="dx3-Fz-BVD">
@@ -264,11 +351,6 @@
                                 <action selector="onCancelButton:" destination="18y-bW-YWR" id="ZRt-qU-fdx"/>
                             </connections>
                         </barButtonItem>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="NSForegroundColorAttributeName">
-                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <connections>
                         <outlet property="firstNameField" destination="TEE-L5-kmF" id="l2x-Wi-5VA"/>
@@ -344,6 +426,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="oOO-Vx-8G8">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="NV7-4n-nMP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogoutButton:" destination="nVc-Vw-uOe" id="qb4-jQ-6zT"/>
                             </connections>

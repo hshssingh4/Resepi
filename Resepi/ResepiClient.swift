@@ -2,65 +2,50 @@
 //  ResepiClient.swift
 //  Resepi
 //
-//  Created by Harpreet Singh on 11/8/16.
+//  Created by Harpreet Singh on 11/9/16.
 //  Copyright © 2016 Harpreet Singh. All rights reserved.
 //
 
 import UIKit
-import Parse
 
 class ResepiClient: NSObject {
     
-    class func initializeParse()
-    {
-        Parse.initialize(
-            with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "instagramios"
-                configuration.clientKey = "khaj3wkqx3xhwnv4nv4uvqho3nrch9isad"
-                configuration.server = "https://instagramios.herokuapp.com/parse"
-            })
+    static func getRecepies(searchTerm: String, _ success: @escaping ([NSDictionary]) -> (), failure: @escaping (Error) -> ()) {
+        let path = "https://api.edamam.com/search"
+        let appId = "7e2bbab1"
+        let appKey = "454d90ed492f48f024b58bdd7d16b60b"
+        let from_value = 0
+        let to_value = 20
+        let url = URL(string:"\(path)?q=\(searchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)")
+        let request = URLRequest(url: url!)
+        
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate:nil,
+            delegateQueue:OperationQueue.main
         )
-    }
-    
-    class func signIn(username: String, password: String, vc: LoginViewController)
-    {
-        print("signing in...")
-        PFUser.logInWithUsername(inBackground: username, password: password, block: { (user: PFUser?, error: Error?) in
-            if (user != nil) {
-                print("logged in successfully")
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "Log In User"), object: nil)
-            }
-            
-            if (error != nil) {
-                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle:UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    vc.present(alert, animated: true, completion: nil)
-            }
-        })
-    }
-    
-    class func signUp(firstName: String, lastName: String, username: String, password: String)
-    {
-        let newUser = PFUser()
         
-        newUser.username = username
-        newUser.password = password
-        newUser["firstName"] = firstName
-        newUser["lastName"] = lastName
-        
-        newUser.signUpInBackground { (success, Error) in
-            if (success) {
-                print("new user created")
+        let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: {data, response, error in
+            if data != nil {
+                
+                if let responseDictionary = try! JSONSerialization.jsonObject(with: data!, options:[]) as? NSDictionary {
+                    success(responseDictionary["hits"] as! [NSDictionary])
+                }
             }
             else {
-                print(Error?.localizedDescription ?? "failed to sign up")
+                failure(error!)
             }
-        }
+        });
+        
+        task.resume()
     }
     
-    class func logout()
-    {
-        PFUser.logOut()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Log Out User"), object: nil)
-    }
+    
+    
+    
+    
+    
+    
+    
+
 }
