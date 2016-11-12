@@ -8,10 +8,11 @@
 
 import UIKit
 
-class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     let dataManager: DataManager = DataManager()
     
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var recipesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         
         recipesCollectionView.delegate = self
         recipesCollectionView.dataSource = self
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +44,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         // Pass the selected object to the new view controller.
         if let cell = sender as? UICollectionViewCell {
             let indexPath = recipesCollectionView.indexPath(for: cell)
-            let recipe = dataManager.recipes[(indexPath?.row)!]
+            let recipe = dataManager.filteredRecipes[(indexPath?.row)!]
             let detailsViewController = segue.destination as! RecipeDetailsViewController
             
             detailsViewController.recipe = recipe
@@ -63,6 +65,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
                 
                 self.dataManager.addRecipe(recipe: recipe)
             }
+            self.dataManager.filteredRecipes = self.dataManager.recipes
             self.recipesCollectionView.reloadData()
         }) { (error: Error) in
             print(error.localizedDescription)
@@ -71,18 +74,61 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataManager.recipes.count
+        return dataManager.filteredRecipes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
-        cell.recipe = dataManager.recipes[indexPath.row]
+        cell.recipe = dataManager.filteredRecipes[indexPath.row]
         return cell
     }
     
     
+    // Search bar functions.
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            dataManager.filteredRecipes = dataManager.recipes
+        }
+        else {
+            // Search here for filtered content
+            dataManager.filteredRecipes = []
+            
+            ResepiClient.getRecepies(searchTerm: searchText, { (resultsDict: [NSDictionary]) in
+                
+                for resultDict in resultsDict {
+                    let recipeDict = resultDict["recipe"] as! NSDictionary
+                    let recipe = Recipe(dataDict: recipeDict)
+                    
+                    self.dataManager.filteredRecipes.append(recipe)
+                }
+                self.recipesCollectionView.reloadData()
+            }) { (error: Error) in
+                print(error.localizedDescription)
+            }
+        }
+        
+        self.recipesCollectionView.reloadData()
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        self.searchBar.endEditing(true)
+        self.searchBar.showsCancelButton = true
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        self.searchBar.text = ""
+        self.searchBar(searchBar, textDidChange: self.searchBar.text!)
+    }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
+    }
 }

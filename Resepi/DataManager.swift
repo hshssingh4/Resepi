@@ -10,6 +10,7 @@ import UIKit
 
 class DataManager: NSObject {
     var recipes: [Recipe] = []
+    var filteredRecipes: [Recipe] = []
     
     func addRecipe(recipe: Recipe) {
         recipes.append(recipe)
