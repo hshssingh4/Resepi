@@ -12,8 +12,8 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     
     let dataManager: DataManager = DataManager()
     
-    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var recipesCollectionView: UICollectionView!
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +82,6 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         cell.recipe = dataManager.filteredRecipes[indexPath.row]
         return cell
     }
-    
     
     // Search bar functions.
     

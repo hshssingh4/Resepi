@@ -8,5 +8,6 @@ target 'Resepi' do
   # Pods for Resepi
   pod 'Parse'
   pod 'AFNetworking', '~> 3.0'
+  pod 'PNChart'
 
 end

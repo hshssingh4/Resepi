@@ -16,7 +16,9 @@ class ResepiClient: NSObject {
         let appKey = "454d90ed492f48f024b58bdd7d16b60b"
         let from_value = 0
         let to_value = 20
-        let url = URL(string:"\(path)?q=\(searchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)")
+        // Replace spaces in search term to '+'
+        let newSearchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
+        let url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)")
         let request = URLRequest(url: url!)
         
         let session = URLSession(

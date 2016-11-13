@@ -22,6 +22,7 @@
 		CF1774A81DD2D75A0044A908 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A71DD2D75A0044A908 /* DataViewController.swift */; };
 		CF1774AA1DD2D7640044A908 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A91DD2D7640044A908 /* ProfileViewController.swift */; };
 		CF3264AA1DD3C58500A91A7F /* ResepiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3264A91DD3C58500A91A7F /* ResepiClient.swift */; };
+		CF9B363B1DD7FC130060C267 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */; };
 		CFF13EE71DD698ED00C36A2F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF13EE61DD698ED00C36A2F /* ColorPalette.swift */; };
 		CFF13EE91DD69D1C00C36A2F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		CF1774A71DD2D75A0044A908 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		CF1774A91DD2D7640044A908 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CF3264A91DD3C58500A91A7F /* ResepiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResepiClient.swift; sourceTree = "<group>"; };
+		CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		CFF13EE61DD698ED00C36A2F /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 				CF1774A71DD2D75A0044A908 /* DataViewController.swift */,
 				CF1774A91DD2D7640044A908 /* ProfileViewController.swift */,
 				CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */,
+				CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				CF0B5D981DD678DF001A94E5 /* DataManager.swift in Sources */,
 				CF0B5D9F1DD682AE001A94E5 /* RecipeCell.swift in Sources */,
 				CF1774A21DD2C2BE0044A908 /* UserClient.swift in Sources */,
+				CF9B363B1DD7FC130060C267 /* AddDataViewController.swift in Sources */,
 				CF1774A41DD2CE880044A908 /* SignUpViewController.swift in Sources */,
 				CF1774A61DD2D74F0044A908 /* RecipesViewController.swift in Sources */,
 				CF1774AA1DD2D7640044A908 /* ProfileViewController.swift in Sources */,

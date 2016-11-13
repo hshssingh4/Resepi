@@ -22,7 +22,6 @@ class RecipeDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = ColorPalette.BrandColor
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ColorPalette.WhiteColor]
         self.title = "Details"
