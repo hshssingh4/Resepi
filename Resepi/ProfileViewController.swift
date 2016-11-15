@@ -44,8 +44,7 @@ class ProfileViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func logoutUser(_ alert: UIAlertAction)
-    {
+    func logoutUser(_ alert: UIAlertAction) {
         UserClient.logout()
     }
 }

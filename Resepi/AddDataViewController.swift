@@ -63,6 +63,7 @@ class AddDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         dismiss(animated: true, completion: nil)
         defaults.set(moneyArray, forKey: "moneyArray")
         defaults.set(timeArray, forKey: "timeArray")
+        defaults.synchronize()
     }
     
     @IBAction func onSaveButton(_ sender: Any) {

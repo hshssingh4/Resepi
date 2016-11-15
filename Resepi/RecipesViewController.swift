@@ -72,6 +72,21 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    @IBAction func onLogoutButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        // Two Actions Added.
+        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertActionStyle.destructive, handler: logoutUser))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // Present the Alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func logoutUser(_ alert: UIAlertAction) {
+        UserClient.logout()
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataManager.filteredRecipes.count

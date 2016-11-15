@@ -9,10 +9,12 @@
 import UIKit
 import PNChart
 
-class DataViewController: UIViewController, AddDataViewControllerDelegate {
+class DataViewController: UIViewController, AddDataViewControllerDelegate, EditOriginalDataViewControllerDelegate {
     
     @IBOutlet var moneyView: UIView!
     @IBOutlet var timeView: UIView!
+    @IBOutlet var moneyLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
     
     var moneyChart: PNBarChart!
     var timeChart: PNBarChart!
@@ -28,6 +30,16 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate {
         
         self.initMoneyChart()
         self.initTimeChart()
+        
+        var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+        if (moneyValue == nil) {
+            moneyValue = 0
+        }
+        var timeValue = defaults.value(forKey: "timeValue") as? Int
+        if (timeValue == nil) {
+            timeValue = 0
+        }
+        self.updateMoneyTimeLabels(moneyValue: moneyValue!, timeValue: timeValue!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,15 +54,49 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let addDataViewController = segue.destination.childViewControllers[0] as! AddDataViewController
-        addDataViewController.delegate = self
-        addDataViewController.moneyArray = moneyChart.yValues as! [Int]
-        addDataViewController.timeArray = timeChart.yValues as! [Int]
+        
+        
+        if ((sender as? UIBarButtonItem)?.tag == 2) {
+            let addDataViewController = segue.destination.childViewControllers[0] as! AddDataViewController
+            addDataViewController.delegate = self
+            addDataViewController.moneyArray = moneyChart.yValues as! [Int]
+            addDataViewController.timeArray = timeChart.yValues as! [Int]
+        }
+        else if ((sender as? UIBarButtonItem)?.tag == 1) {
+            let editOriginalDataViewController = segue.destination.childViewControllers[0] as! EditOriginalDataViewController
+            editOriginalDataViewController.delegate = self
+            
+            var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+            if (moneyValue == nil) {
+                moneyValue = 0
+            }
+            var timeValue = defaults.value(forKey: "timeValue") as? Int
+            if (timeValue == nil) {
+                timeValue = 0
+            }
+            
+            editOriginalDataViewController.moneyValue = moneyValue!
+            editOriginalDataViewController.timeValue = timeValue!
+        }
     }
     
     func graphValues(moneyArray: [Int], timeArray: [Int]) {
         moneyChart.updateData(moneyArray)
         timeChart.updateData(timeArray)
+        
+        var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+        if (moneyValue == nil) {
+            moneyValue = 0
+        }
+        var timeValue = defaults.value(forKey: "timeValue") as? Int
+        if (timeValue == nil) {
+            timeValue = 0
+        }
+        self.updateMoneyTimeLabels(moneyValue: moneyValue!, timeValue: timeValue!)
+    }
+    
+    func editOriginalData(moneyValue: Int, timeValue: Int) {
+        self.updateMoneyTimeLabels(moneyValue: moneyValue, timeValue: timeValue)
     }
     
     func initMoneyChart() {
@@ -114,5 +160,38 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate {
         timeChart.stroke()
         
         self.view.addSubview(timeChart)
+    }
+    
+    func updateMoneyTimeLabels(moneyValue: Int, timeValue: Int) {
+        let moneyArray = moneyChart.yValues as! [Int]
+        let timeArray = timeChart.yValues as! [Int]
+        
+        var moneySum: Int = 0
+        var timeSum: Int = 0
+
+        for value in moneyArray {
+            moneySum += value
+        }
+        
+        for value in timeArray {
+            timeSum += value
+        }
+        
+        let moneySaved = moneyValue - moneySum
+        let timeSaved = timeValue - timeSum
+                
+        if (moneySaved >= 0) {
+            moneyLabel.text = "Saved $\(moneySaved)"
+        }
+        else {
+            moneyLabel.text = "Lost $\(-1*moneySaved)"
+        }
+        
+        if (timeSaved >= 0) {
+            timeLabel.text = "Saved \(timeSaved) Hrs."
+        }
+        else {
+            timeLabel.text = "Lost \(-1*timeSaved) Hrs."
+        }
     }
 }
