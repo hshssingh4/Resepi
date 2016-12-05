@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @objc protocol AddDataViewControllerDelegate  {
     func graphValues(moneyArray: [Int], timeArray: [Int])
@@ -61,8 +62,8 @@ class AddDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func onDoneButton(_ sender: Any) {
         delegate?.graphValues(moneyArray: moneyArray, timeArray: timeArray)
         dismiss(animated: true, completion: nil)
-        defaults.set(moneyArray, forKey: "moneyArray")
-        defaults.set(timeArray, forKey: "timeArray")
+        defaults.set(moneyArray, forKey: "\(PFUser.current()?.username)moneyArray")
+        defaults.set(timeArray, forKey: "\(PFUser.current()?.username)timeArray")
         defaults.synchronize()
     }
     

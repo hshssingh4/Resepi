@@ -548,7 +548,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="rGS-ds-9C7">
-                        <barButtonItem key="leftBarButtonItem" tag="1" systemItem="edit" id="MvE-Ty-sRk">
+                        <barButtonItem key="leftBarButtonItem" tag="1" title="Edit Original" id="MvE-Ty-sRk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="xI6-cu-c2X" kind="presentation" id="sa0-CG-lrn"/>

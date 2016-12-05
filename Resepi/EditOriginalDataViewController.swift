@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @objc protocol EditOriginalDataViewControllerDelegate  {
     func editOriginalData(moneyValue: Int, timeValue: Int)
@@ -56,8 +57,8 @@ class EditOriginalDataViewController: UIViewController {
     @IBAction func onDoneButton(_ sender: Any) {
         delegate?.editOriginalData(moneyValue: moneyValue, timeValue: timeValue)
         dismiss(animated: true, completion: nil)
-        defaults.set(moneyValue, forKey: "moneyValue")
-        defaults.set(timeValue, forKey: "timeValue")
+        defaults.set(moneyValue, forKey: "\(PFUser.current()?.username)moneyValue")
+        defaults.set(timeValue, forKey: "\(PFUser.current()?.username)timeValue")
         defaults.synchronize()
     }
     

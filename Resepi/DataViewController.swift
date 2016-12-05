@@ -8,6 +8,7 @@
 
 import UIKit
 import PNChart
+import Parse
 
 class DataViewController: UIViewController, AddDataViewControllerDelegate, EditOriginalDataViewControllerDelegate {
     
@@ -31,11 +32,11 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         self.initMoneyChart()
         self.initTimeChart()
         
-        var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+        var moneyValue = defaults.value(forKey: "\(PFUser.current()?.username)moneyValue") as? Int
         if (moneyValue == nil) {
             moneyValue = 0
         }
-        var timeValue = defaults.value(forKey: "timeValue") as? Int
+        var timeValue = defaults.value(forKey: "\(PFUser.current()?.username)timeValue") as? Int
         if (timeValue == nil) {
             timeValue = 0
         }
@@ -66,11 +67,11 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
             let editOriginalDataViewController = segue.destination.childViewControllers[0] as! EditOriginalDataViewController
             editOriginalDataViewController.delegate = self
             
-            var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+            var moneyValue = defaults.value(forKey: "\(PFUser.current()?.username)moneyValue") as? Int
             if (moneyValue == nil) {
                 moneyValue = 0
             }
-            var timeValue = defaults.value(forKey: "timeValue") as? Int
+            var timeValue = defaults.value(forKey: "\(PFUser.current()?.username)timeValue") as? Int
             if (timeValue == nil) {
                 timeValue = 0
             }
@@ -84,11 +85,11 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         moneyChart.updateData(moneyArray)
         timeChart.updateData(timeArray)
         
-        var moneyValue = defaults.value(forKey: "moneyValue") as? Int
+        var moneyValue = defaults.value(forKey: "\(PFUser.current()?.username)moneyValue") as? Int
         if (moneyValue == nil) {
             moneyValue = 0
         }
-        var timeValue = defaults.value(forKey: "timeValue") as? Int
+        var timeValue = defaults.value(forKey: "\(PFUser.current()?.username)timeValue") as? Int
         if (timeValue == nil) {
             timeValue = 0
         }
@@ -105,7 +106,7 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         moneyChart.xLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         moneyChart.yLabels = ["0", "10", "20", "30", "40", "50", "60"]
 
-        let moneyArray = defaults.value(forKey: "moneyArray") as? [Int]
+        let moneyArray = defaults.value(forKey: "\(PFUser.current()?.username)moneyArray") as? [Int]
         if (moneyArray != nil) {
             moneyChart.yValues = moneyArray
         }
@@ -137,7 +138,7 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         timeChart.xLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         timeChart.yLabels = ["0", "1", "2", "3", "4", "5", "6"]
         
-        let timeArray = defaults.value(forKey: "timeArray") as? [Int]
+        let timeArray = defaults.value(forKey: "\(PFUser.current()?.username)timeArray") as? [Int]
         if (timeArray != nil) {
             timeChart.yValues = timeArray
         }
@@ -179,7 +180,7 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         
         let moneySaved = moneyValue - moneySum
         let timeSaved = timeValue - timeSum
-                
+        
         if (moneySaved >= 0) {
             moneyLabel.text = "Saved $\(moneySaved)"
         }

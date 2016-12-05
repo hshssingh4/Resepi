@@ -15,9 +15,9 @@ class UserClient: NSObject {
     {
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "instagramios"
-                configuration.clientKey = "khaj3wkqx3xhwnv4nv4uvqho3nrch9isad"
-                configuration.server = "https://instagramios.herokuapp.com/parse"
+                configuration.applicationId = "alhfafhahfhlafhkallsasldjlaj"
+                configuration.clientKey = "njaaflhalskhfhakshfasnklasnlkas"
+                configuration.server = "http://resepi.herokuapp.com/parse"
             })
         )
     }
