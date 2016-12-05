@@ -69,8 +69,21 @@ class AddDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func onSaveButton(_ sender: Any) {
         let row = dayPickerView.selectedRow(inComponent: 0)
-        let money = Int(moneyField.text!)!
-        let time = Int(timeField.text!)!
+        var money: Int
+        var time: Int
+        if (moneyField.text?.isEmpty)! {
+            money = 0
+        }
+        else {
+            money = Int(moneyField.text!)!
+        }
+        if (timeField.text?.isEmpty)! {
+            time = 0
+        }
+        else {
+            time = Int(timeField.text!)!
+        }
+        
         moneyArray[row] = money
         timeArray[row] = time
         

@@ -114,7 +114,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="838" y="-225"/>
+            <point key="canvasLocation" x="838" y="-877"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="lnu-fN-j7E">
@@ -198,6 +198,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipes" id="ehP-QS-MpN">
+                        <barButtonItem key="leftBarButtonItem" tag="1" title="Filters" id="kMF-nY-q7U">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="YjE-nc-wJP" kind="presentation" id="i9X-ue-Cys"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="oUi-lP-DC7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -212,7 +218,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNd-Me-oMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="458"/>
+            <point key="canvasLocation" x="1593" y="-152"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="uE4-7K-tDk">
+            <objects>
+                <viewController id="ANO-BX-zAk" customClass="FiltersViewController" customModule="Resepi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CHO-kb-82S"/>
+                        <viewControllerLayoutGuide type="bottom" id="sEk-FQ-LZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wBy-Kc-Anx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqD-UC-uj6">
+                                <rect key="frame" x="0.0" y="63" width="375" height="272"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iy0-oS-cvj">
+                                <rect key="frame" x="0.0" y="374" width="375" height="293"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Diet Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow0-8Z-DUj">
+                                <rect key="frame" x="0.0" y="75" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bz2-5e-F5H">
+                                <rect key="frame" x="0.0" y="106" width="375" height="220"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Food Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFl-3Q-Eae">
+                                <rect key="frame" x="0.0" y="381" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.1529411765" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUQ-x1-ay6">
+                                <rect key="frame" x="0.0" y="413" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filters" id="mvI-3N-fz3">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pBm-GM-VFs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onCancelButton:" destination="ANO-BX-zAk" id="1nG-8Q-xlo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="Xhf-pH-SRH">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onSubmitButton:" destination="ANO-BX-zAk" id="AEG-wA-3Wc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dietPickerView" destination="Bz2-5e-F5H" id="kQK-i1-mGc"/>
+                        <outlet property="foodPickerView" destination="NUQ-x1-ay6" id="8Zl-oo-WYD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HYT-UU-APm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="622.93853073463276"/>
         </scene>
         <!--Recipe Details View Controller-->
         <scene sceneID="Tts-RS-46k">
@@ -302,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0a-pJ-EJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2353" y="458"/>
+            <point key="canvasLocation" x="2353" y="-152"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="dx3-Fz-BVD">
@@ -454,7 +532,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2353" y="-225"/>
+            <point key="canvasLocation" x="2353" y="-878"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="luR-BD-rgl">
@@ -472,7 +550,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmP-El-7th" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="-225"/>
+            <point key="canvasLocation" x="1593" y="-878"/>
         </scene>
         <!--Data-->
         <scene sceneID="s5W-lM-hlL">
@@ -726,7 +804,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6x-p8-3mK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="875"/>
+            <point key="canvasLocation" x="5008.8000000000002" y="874.81259370314854"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ci3-Qt-hRV">
@@ -770,7 +848,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0U-wT-nPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="459"/>
+            <point key="canvasLocation" x="838" y="-152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jlM-aj-BW4">
@@ -842,7 +920,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kM-HK-vQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3281" y="875"/>
+            <point key="canvasLocation" x="4220" y="874.81259370314854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bbY-9j-bgv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YjE-nc-wJP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1zU-u7-D4m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ANO-BX-zAk" kind="relationship" relationship="rootViewController" id="3Hg-UR-tqR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1eG-3m-lCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.8" y="622.93853073463276"/>
         </scene>
     </scenes>
     <resources>

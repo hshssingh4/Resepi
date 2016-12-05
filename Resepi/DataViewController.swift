@@ -104,7 +104,7 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         moneyChart = PNBarChart(frame: CGRect(x: moneyView.frame.origin.x + 10, y: moneyView.frame.origin.y + 50, width: moneyView.frame.width - 20, height: moneyView.frame.height - 100))
         
         moneyChart.xLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-        moneyChart.yLabels = ["0", "10", "20", "30", "40", "50", "60"]
+        //moneyChart.yLabels = ["0", "10", "20", "30", "40", "50", "60"]
 
         let moneyArray = defaults.value(forKey: "\(PFUser.current()?.username)moneyArray") as? [Int]
         if (moneyArray != nil) {
@@ -136,7 +136,7 @@ class DataViewController: UIViewController, AddDataViewControllerDelegate, EditO
         timeChart = PNBarChart(frame: CGRect(x: timeView.frame.origin.x + 10, y: timeView.frame.origin.y + 50, width: timeView.frame.width - 20, height: timeView.frame.height - 100))
         
         timeChart.xLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-        timeChart.yLabels = ["0", "1", "2", "3", "4", "5", "6"]
+        //timeChart.yLabels = ["0", "1", "2", "3", "4", "5", "6"]
         
         let timeArray = defaults.value(forKey: "\(PFUser.current()?.username)timeArray") as? [Int]
         if (timeArray != nil) {

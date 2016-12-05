@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
+class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, AddFiltersViewControllerDelegate {
     
     let dataManager: DataManager = DataManager()
     
@@ -49,6 +49,45 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
             
             detailsViewController.recipe = recipe
         }
+        else if ((sender as? UIBarButtonItem)?.tag == 1) {
+            let addFiltersViewController = segue.destination.childViewControllers[0] as! FiltersViewController
+            addFiltersViewController.delegate = self
+        }
+    }
+    
+    func addFiltersData(dietType: String, foodType: String) {
+        // Get recipes only with filters if they are not none
+        var dietParam: String?
+        var foodParam: String?
+        if (dietType != "None") {
+            dietParam = dietType
+        }
+        if (foodType != "None") {
+            foodParam = foodType
+        }
+        
+        dataManager.foodType = foodParam
+        dataManager.dietType = dietParam
+        
+        var searchText = searchBar.text
+        if (searchText?.isEmpty)! {
+            searchText = "food"
+        }
+        
+        dataManager.filteredRecipes = []
+        ResepiClient.getRecepies(searchTerm: searchText!, dietType: dataManager.dietType , foodType: dataManager.foodType, { (resultsDict: [NSDictionary]) in
+            for resultDict in resultsDict {
+                let recipeDict = resultDict["recipe"] as! NSDictionary
+                let recipe = Recipe(dataDict: recipeDict)
+                
+                self.dataManager.filteredRecipes.append(recipe)
+            }
+            self.recipesCollectionView.reloadData()
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
+        
+        self.recipesCollectionView.reloadData()
     }
     
     
@@ -57,7 +96,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
      data manager.
      */
     func initData() {
-        ResepiClient.getRecepies(searchTerm: "food", { (resultsDict: [NSDictionary]) in
+        ResepiClient.getRecepies(searchTerm: "food", dietType: dataManager.dietType, foodType: dataManager.foodType, { (resultsDict: [NSDictionary]) in
 
             for resultDict in resultsDict {
                 let recipeDict = resultDict["recipe"] as! NSDictionary
@@ -109,7 +148,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
             // Search here for filtered content
             dataManager.filteredRecipes = []
             
-            ResepiClient.getRecepies(searchTerm: searchText, { (resultsDict: [NSDictionary]) in
+            ResepiClient.getRecepies(searchTerm: searchText, dietType: dataManager.dietType , foodType: dataManager.foodType, { (resultsDict: [NSDictionary]) in
                 
                 for resultDict in resultsDict {
                     let recipeDict = resultDict["recipe"] as! NSDictionary

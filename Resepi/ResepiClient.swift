@@ -10,7 +10,7 @@ import UIKit
 
 class ResepiClient: NSObject {
     
-    static func getRecepies(searchTerm: String, _ success: @escaping ([NSDictionary]) -> (), failure: @escaping (Error) -> ()) {
+    static func getRecepies(searchTerm: String, dietType: String?, foodType: String?, _ success: @escaping ([NSDictionary]) -> (), failure: @escaping (Error) -> ()) {
         let path = "https://api.edamam.com/search"
         let appId = "7e2bbab1"
         let appKey = "454d90ed492f48f024b58bdd7d16b60b"
@@ -18,8 +18,26 @@ class ResepiClient: NSObject {
         let to_value = 20
         // Replace spaces in search term to '+'
         let newSearchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
-        let url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)")
-        let request = URLRequest(url: url!)
+        var url: URL!
+        
+        if (dietType == nil && foodType == nil) {
+            url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)")
+        }
+        else if (dietType != nil && foodType == nil) {
+            // Call for diet type
+            url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)&diet=\(dietType!)")
+        }
+        else if (dietType == nil && foodType != nil) {
+            // Call for food type
+            url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)&health=\(foodType!)")
+        }
+        else {
+            // Call for both
+            url = URL(string:"\(path)?q=\(newSearchTerm)&app_id=\(appId)&app_key=\(appKey)&from=\(from_value)&to=\(to_value)&health=\(foodType!)&diet=\(dietType!)")
+            
+        }
+        
+        let request = URLRequest(url: url)
         
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
