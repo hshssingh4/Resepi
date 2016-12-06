@@ -13,7 +13,7 @@ class RecipeCell: UICollectionViewCell {
     @IBOutlet var recipeImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var sourceNameLabel: UILabel!
-    
+    @IBOutlet var favoriteRecipeButton: UIButton!
     
     var recipe: Recipe! {
         didSet {

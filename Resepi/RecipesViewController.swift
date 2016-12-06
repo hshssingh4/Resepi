@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, AddFiltersViewControllerDelegate {
+class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, AddFiltersViewControllerDelegate, CAAnimationDelegate {
     
     let dataManager: DataManager = DataManager()
     
@@ -136,8 +136,51 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
         cell.recipe = dataManager.filteredRecipes[indexPath.row]
+        
+        if dataManager.isFavorite(dataManager.recipes[(indexPath as NSIndexPath).row]) {
+            cell.favoriteRecipeButton.setImage(UIImage(named: "Favorite Image"), for: UIControlState())
+        }
+        else {
+            cell.favoriteRecipeButton.setImage(UIImage(named: "Unfavorite Image"), for: UIControlState())
+        }
+        
         return cell
     }
+    
+    // Favorite Button Pressed
+    @IBAction func onFavoriteButtonPressed(_ sender: UIButton) {
+        let cell = sender.superview?.superview as! RecipeCell
+        let indexPath = self.recipesCollectionView.indexPath(for: cell)
+        let recipe = dataManager.recipes[((indexPath as NSIndexPath?)?.row)!]
+        
+        if dataManager.isFavorite(recipe) {
+            let alertController = UIAlertController(title: "Are you sure you want to unfavorite?", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Unfavorite", style: .destructive, handler: { (action) in
+                let index = self.dataManager.indexOfFavorite(recipe)
+                self.dataManager.removeFavorite(index)
+                sender.setImage(UIImage(named: "Unfavorite Image"), for: UIControlState())
+                let transition = CATransition()
+                transition.delegate = self
+                transition.duration = 0.2
+                transition.type = kCATransitionFade
+                sender.imageView?.layer.add(transition, forKey: kCATransition)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else {
+            dataManager.addFavorite(recipe)
+            
+            sender.setImage(UIImage(named: "Favorite Image"), for: UIControlState())
+            let transition = CATransition()
+            transition.delegate = self
+            transition.duration = 0.2
+            transition.type = kCATransitionFade
+            sender.imageView?.layer.add(transition, forKey: kCATransition)
+        }
+    }
+    
     
     // Search bar functions.
     

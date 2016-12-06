@@ -170,10 +170,20 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pa-8e-vnv">
+                                                    <rect key="frame" x="326" y="8" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" image="Unfavorite Image"/>
+                                                    <connections>
+                                                        <action selector="onFavoriteButtonPressed:" destination="MMo-P7-0pz" eventType="touchUpInside" id="JpN-iO-DWU"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="favoriteRecipeButton" destination="1Pa-8e-vnv" id="sGq-g7-pQd"/>
                                             <outlet property="nameLabel" destination="AZJ-jp-Qhs" id="C19-1I-hlg"/>
                                             <outlet property="recipeImageView" destination="XMC-KY-YZn" id="hhE-et-TuZ"/>
                                             <outlet property="sourceNameLabel" destination="1nw-Td-16L" id="jno-05-GoX"/>
@@ -218,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNd-Me-oMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="-152"/>
+            <point key="canvasLocation" x="1592.8" y="-152.47376311844079"/>
         </scene>
         <!--Filters-->
         <scene sceneID="uE4-7K-tDk">
@@ -980,5 +990,6 @@
     </scenes>
     <resources>
         <image name="Close Icon" width="22" height="22"/>
+        <image name="Unfavorite Image" width="45" height="45"/>
     </resources>
 </document>
