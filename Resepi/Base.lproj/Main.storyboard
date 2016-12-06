@@ -470,6 +470,7 @@
                                             <outlet property="nameLabel" destination="nLc-vA-lgS" id="KC7-xZ-pkO"/>
                                             <outlet property="recipeImageView" destination="XiG-gu-pXe" id="mRK-sj-k7W"/>
                                             <outlet property="sourceNameLabel" destination="QS6-WJ-dfe" id="4Cn-6K-Ads"/>
+                                            <segue destination="l0a-W0-g27" kind="show" id="PsU-X7-9Wj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1073,4 +1074,7 @@
         <image name="Close Icon" width="22" height="22"/>
         <image name="Unfavorite Image" width="45" height="45"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PsU-X7-9Wj"/>
+    </inferredMetricsTieBreakers>
 </document>

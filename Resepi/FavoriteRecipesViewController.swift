@@ -47,15 +47,22 @@ class FavoriteRecipesViewController: UIViewController, UICollectionViewDelegate,
         self.favoritesCollectionView.reloadData()
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let cell = sender as? UICollectionViewCell {
+            let indexPath = favoritesCollectionView.indexPath(for: cell)
+            let recipe = dataManager?.favoriteRecipes[((indexPath as NSIndexPath?)?.row)!]
+            let detailsViewController = segue.destination as! RecipeDetailsViewController
+            
+            detailsViewController.recipe = recipe
+        }
     }
-    */
+ 
     
     /*****  Collection View Methods  *****/
     

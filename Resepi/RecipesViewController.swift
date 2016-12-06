@@ -29,6 +29,23 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         recipesCollectionView.dataSource = self
         searchBar.delegate = self
     }
+    
+    /** Make sure to initialize the favorites that are stored in NSUserDefaults back to the favorites array.
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.object(forKey: "favorites") as? Data {
+            dataManager.favoriteRecipes = NSKeyedUnarchiver.unarchiveObject(with: data) as! [Recipe]
+        }
+    }
+    
+    /**
+     Before the view disppears, make sure the favorites are stored in NSUserDefaults so that they can be retrieved later.
+     */
+    override func viewWillDisappear(_ animated: Bool) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: dataManager.favoriteRecipes)
+        UserDefaults.standard.set(data, forKey: "favorites")
+        //NSUserDefaults.standardUserDefaults().removeObjectForKey("favorites")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
