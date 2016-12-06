@@ -1,14 +1,14 @@
 //
-//  ProfileViewController.swift
+//  FavoriteRecipesViewController.swift
 //  Resepi
 //
-//  Created by Harpreet Singh on 11/8/16.
+//  Created by Harpreet Singh on 12/5/16.
 //  Copyright © 2016 Harpreet Singh. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class FavoriteRecipesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +16,17 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = ColorPalette.BrandColor
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ColorPalette.WhiteColor]
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation
@@ -32,19 +37,5 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func onLogoutButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        
-        // Two Actions Added.
-        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertActionStyle.destructive, handler: logoutUser))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // Present the Alert.
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func logoutUser(_ alert: UIAlertAction) {
-        UserClient.logout()
-    }
+
 }

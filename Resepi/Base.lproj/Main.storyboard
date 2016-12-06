@@ -382,6 +382,25 @@
             </objects>
             <point key="canvasLocation" x="2353" y="-152"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="urU-iP-HsT">
+            <objects>
+                <viewController id="xcO-ZH-fLc" customClass="FavoriteRecipesViewController" customModule="Resepi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="roS-UK-sCz"/>
+                        <viewControllerLayoutGuide type="bottom" id="k8v-M5-JHr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zCe-hs-wGR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="aTo-3I-uAt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uke-i3-mEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3977" y="-152"/>
+        </scene>
         <!--Sign Up-->
         <scene sceneID="dx3-Fz-BVD">
             <objects>
@@ -939,6 +958,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eG-3m-lCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1592.8" y="622.93853073463276"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eH5-fj-CXr">
+            <objects>
+                <navigationController storyboardIdentifier="FavoriteRecipesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="D87-UF-Q1L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zAF-gy-8G8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xcO-ZH-fLc" kind="relationship" relationship="rootViewController" id="DHa-2Y-iTB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8H-fs-2je" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3175" y="-152"/>
         </scene>
     </scenes>
     <resources>

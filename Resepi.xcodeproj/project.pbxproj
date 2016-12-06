@@ -20,11 +20,11 @@
 		CF1774A41DD2CE880044A908 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A31DD2CE880044A908 /* SignUpViewController.swift */; };
 		CF1774A61DD2D74F0044A908 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A51DD2D74F0044A908 /* RecipesViewController.swift */; };
 		CF1774A81DD2D75A0044A908 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A71DD2D75A0044A908 /* DataViewController.swift */; };
-		CF1774AA1DD2D7640044A908 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1774A91DD2D7640044A908 /* ProfileViewController.swift */; };
 		CF3264AA1DD3C58500A91A7F /* ResepiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3264A91DD3C58500A91A7F /* ResepiClient.swift */; };
 		CF7459001DF5FD6A00F9DB37 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7458FF1DF5FD6A00F9DB37 /* FiltersViewController.swift */; };
 		CF9B363B1DD7FC130060C267 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */; };
 		CFB0C11F1DDB672D00AD1D7D /* EditOriginalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0C11E1DDB672D00AD1D7D /* EditOriginalDataViewController.swift */; };
+		CFB5F38C1DF637EE0078645B /* FavoriteRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5F38B1DF637EE0078645B /* FavoriteRecipesViewController.swift */; };
 		CFF13EE71DD698ED00C36A2F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF13EE61DD698ED00C36A2F /* ColorPalette.swift */; };
 		CFF13EE91DD69D1C00C36A2F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,11 +47,11 @@
 		CF1774A31DD2CE880044A908 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CF1774A51DD2D74F0044A908 /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		CF1774A71DD2D75A0044A908 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		CF1774A91DD2D7640044A908 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CF3264A91DD3C58500A91A7F /* ResepiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResepiClient.swift; sourceTree = "<group>"; };
 		CF7458FF1DF5FD6A00F9DB37 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		CFB0C11E1DDB672D00AD1D7D /* EditOriginalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOriginalDataViewController.swift; sourceTree = "<group>"; };
+		CFB5F38B1DF637EE0078645B /* FavoriteRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesViewController.swift; sourceTree = "<group>"; };
 		CFF13EE61DD698ED00C36A2F /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +130,7 @@
 		CF1267401DD2BD9500D5775D /* Resepi */ = {
 			isa = PBXGroup;
 			children = (
+				CFB5F38D1DF638400078645B /* Storyboards */,
 				CF0B5D9D1DD6828A001A94E5 /* Views */,
 				CF0B5D9C1DD67C2C001A94E5 /* Data Manager */,
 				CF0B5D991DD6793B001A94E5 /* Models */,
@@ -137,9 +138,7 @@
 				CF1774A01DD2C23A0044A908 /* Client */,
 				CF17749F1DD2C1740044A908 /* View Controllers */,
 				CF1267411DD2BD9500D5775D /* AppDelegate.swift */,
-				CF1267451DD2BD9500D5775D /* Main.storyboard */,
 				CF1267481DD2BD9500D5775D /* Assets.xcassets */,
-				CF12674A1DD2BD9500D5775D /* LaunchScreen.storyboard */,
 				CF12674D1DD2BD9500D5775D /* Info.plist */,
 			);
 			path = Resepi;
@@ -152,11 +151,11 @@
 				CF1774A31DD2CE880044A908 /* SignUpViewController.swift */,
 				CF1774A51DD2D74F0044A908 /* RecipesViewController.swift */,
 				CF1774A71DD2D75A0044A908 /* DataViewController.swift */,
-				CF1774A91DD2D7640044A908 /* ProfileViewController.swift */,
 				CFF13EE81DD69D1C00C36A2F /* RecipeDetailsViewController.swift */,
 				CF9B363A1DD7FC130060C267 /* AddDataViewController.swift */,
 				CFB0C11E1DDB672D00AD1D7D /* EditOriginalDataViewController.swift */,
 				CF7458FF1DF5FD6A00F9DB37 /* FiltersViewController.swift */,
+				CFB5F38B1DF637EE0078645B /* FavoriteRecipesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +175,15 @@
 				CFF13EE61DD698ED00C36A2F /* ColorPalette.swift */,
 			);
 			name = Colors;
+			sourceTree = "<group>";
+		};
+		CFB5F38D1DF638400078645B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CF12674A1DD2BD9500D5775D /* LaunchScreen.storyboard */,
+				CF1267451DD2BD9500D5775D /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +317,8 @@
 				CF9B363B1DD7FC130060C267 /* AddDataViewController.swift in Sources */,
 				CF1774A41DD2CE880044A908 /* SignUpViewController.swift in Sources */,
 				CF1774A61DD2D74F0044A908 /* RecipesViewController.swift in Sources */,
-				CF1774AA1DD2D7640044A908 /* ProfileViewController.swift in Sources */,
 				CF1774A81DD2D75A0044A908 /* DataViewController.swift in Sources */,
+				CFB5F38C1DF637EE0078645B /* FavoriteRecipesViewController.swift in Sources */,
 				CFB0C11F1DDB672D00AD1D7D /* EditOriginalDataViewController.swift in Sources */,
 				CF3264AA1DD3C58500A91A7F /* ResepiClient.swift in Sources */,
 				CF1267421DD2BD9500D5775D /* AppDelegate.swift in Sources */,

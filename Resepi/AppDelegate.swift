@@ -35,12 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dataNavigationController.tabBarItem.title = "Data"
             dataNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Data Icon")
             
-            /**let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
-            userProfileNavigationController.tabBarItem.title = "Profile"
-            userProfileNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Profile Icon")*/
+            let favoriteRecipesNavigationController = storyboard.instantiateViewController(withIdentifier: "FavoriteRecipesNavigationController") as! UINavigationController
+            favoriteRecipesNavigationController.tabBarItem.title = "Favorites"
+            favoriteRecipesNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Favorite Icon")
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController, /**userProfileNavigationController*/]
+            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController,favoriteRecipesNavigationController]
             
             UITabBar.appearance().tintColor = ColorPalette.BrandColor
             
@@ -63,12 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dataNavigationController.tabBarItem.title = "Data"
             dataNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Data Icon")
             
-            /**let userProfileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
-            userProfileNavigationController.tabBarItem.title = "Profile"
-            userProfileNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Profile Icon")*/
+            let favoriteRecipesNavigationController = storyboard.instantiateViewController(withIdentifier: "FavoriteRecipesNavigationController") as! UINavigationController
+            favoriteRecipesNavigationController.tabBarItem.title = "Favorites"
+            favoriteRecipesNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Favorite Icon")
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController, /**userProfileNavigationController*/]
+            tabBarController.viewControllers = [recipesNavigationController, dataNavigationController, favoriteRecipesNavigationController]
             self.window?.rootViewController = tabBarController
         }
         

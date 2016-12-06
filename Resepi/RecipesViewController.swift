@@ -52,6 +52,8 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         else if ((sender as? UIBarButtonItem)?.tag == 1) {
             let addFiltersViewController = segue.destination.childViewControllers[0] as! FiltersViewController
             addFiltersViewController.delegate = self
+            addFiltersViewController.dietType = dataManager.dietType
+            addFiltersViewController.foodType = dataManager.foodType
         }
     }
     

@@ -18,6 +18,9 @@ class FiltersViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet var dietPickerView: UIPickerView!
     @IBOutlet var foodPickerView: UIPickerView!
     
+    var foodType: String?
+    var dietType: String?
+    
     let dietTypesArray = ["None", "balanced", "high-protein", "low-fat", "low-carb"]
     let foodTypesArray = ["None", "vegan", "vegetarian", "peanut-free"]
     
@@ -34,6 +37,8 @@ class FiltersViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         dietPickerView.dataSource = self
         foodPickerView.delegate = self
         foodPickerView.dataSource = self
+        
+        initPickers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,16 @@ class FiltersViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func initPickers() {
+        if (dietType != nil) {
+            dietPickerView.selectRow(dietTypesArray.index(of: dietType!)!, inComponent: 0, animated: false)
+        }
+        
+        if (foodType != nil) {
+            foodPickerView.selectRow(foodTypesArray.index(of: foodType!)!, inComponent: 0, animated: false)
+        }
+    }
 
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
