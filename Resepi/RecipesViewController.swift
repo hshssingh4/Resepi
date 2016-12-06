@@ -129,6 +129,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     
+    /******* COLLECTION VIEW METHODS *******/
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataManager.filteredRecipes.count
     }
@@ -145,6 +146,34 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         }
         
         return cell
+    }
+    
+    /**
+     This just highlights and unhighlights the cell when user selects and releases a cell to notify them of the touch using an animation.
+     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = ColorPalette.LightGrayColor
+        UIView.animate(withDuration: 0.3, animations: {
+            cell?.backgroundColor = ColorPalette.CellColor
+        })
+        
+    }
+    
+    /**
+     This just highlights the cell when user selects it to notify them of the touch.
+     */
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = ColorPalette.LightGrayColor
+    }
+    
+    /**
+     This method is used for unhilighting the collection view cell's background color.
+     */
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = ColorPalette.CellColor
     }
     
     // Favorite Button Pressed
