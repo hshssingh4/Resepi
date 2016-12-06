@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, AddFiltersViewControllerDelegate, CAAnimationDelegate {
     
@@ -33,7 +34,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     /** Make sure to initialize the favorites that are stored in NSUserDefaults back to the favorites array.
      */
     override func viewWillAppear(_ animated: Bool) {
-        if let data = UserDefaults.standard.object(forKey: "favorites") as? Data {
+        if let data = UserDefaults.standard.object(forKey: "\(PFUser.current()?.username)favorites") as? Data {
             dataManager.favoriteRecipes = NSKeyedUnarchiver.unarchiveObject(with: data) as! [Recipe]
         }
     }
@@ -43,7 +44,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
      */
     override func viewWillDisappear(_ animated: Bool) {
         let data = NSKeyedArchiver.archivedData(withRootObject: dataManager.favoriteRecipes)
-        UserDefaults.standard.set(data, forKey: "favorites")
+        UserDefaults.standard.set(data, forKey: "\(PFUser.current()?.username)favorites")
         //NSUserDefaults.standardUserDefaults().removeObjectForKey("favorites")
     }
 
@@ -155,7 +156,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
         let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCell
         cell.recipe = dataManager.filteredRecipes[indexPath.row]
         
-        if dataManager.isFavorite(dataManager.recipes[(indexPath as NSIndexPath).row]) {
+        if dataManager.isFavorite(dataManager.filteredRecipes[(indexPath as NSIndexPath).row]) {
             cell.favoriteRecipeButton.setImage(UIImage(named: "Favorite Image"), for: UIControlState())
         }
         else {
@@ -197,7 +198,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBAction func onFavoriteButtonPressed(_ sender: UIButton) {
         let cell = sender.superview?.superview as! RecipeCell
         let indexPath = self.recipesCollectionView.indexPath(for: cell)
-        let recipe = dataManager.recipes[((indexPath as NSIndexPath?)?.row)!]
+        let recipe = dataManager.filteredRecipes[((indexPath as NSIndexPath?)?.row)!]
         
         if dataManager.isFavorite(recipe) {
             let alertController = UIAlertController(title: "Are you sure you want to unfavorite?", message: nil, preferredStyle: .actionSheet)

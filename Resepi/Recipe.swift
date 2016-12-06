@@ -37,21 +37,21 @@ class Recipe: NSObject, NSCoding {
     
     // Decodes the values
     required init(coder decoder: NSCoder) {
-        name = decoder.decodeObject(forKey: "\(PFUser.current()?.username!)name") as! String
-        imageUrl = decoder.decodeObject(forKey: "\(PFUser.current()?.username!)imageURL") as! URL
-        sourceName = decoder.decodeObject(forKey: "\(PFUser.current()?.username!)sourceName") as! String
-        sourceUrl = decoder.decodeObject(forKey: "\(PFUser.current()?.username!)sourceURL") as! URL
-        calories = decoder.decodeDouble(forKey: "\(PFUser.current()?.username!)calories")
-        ingredients = decoder.decodeObject(forKey: "\(PFUser.current()?.username!)ingredients") as! [String]
+        name = decoder.decodeObject(forKey: "\(PFUser.current()?.username)name") as! String
+        imageUrl = decoder.decodeObject(forKey: "\(PFUser.current()?.username)imageURL") as! URL
+        sourceName = decoder.decodeObject(forKey: "\(PFUser.current()?.username)sourceName") as! String
+        sourceUrl = decoder.decodeObject(forKey: "\(PFUser.current()?.username)sourceURL") as! URL
+        calories = decoder.decodeDouble(forKey: "\(PFUser.current()?.username)calories")
+        ingredients = decoder.decodeObject(forKey: "\(PFUser.current()?.username)ingredients") as! [String]
     }
     
     // Encodes the values
     func encode(with coder: NSCoder) {
-        coder.encode(self.name, forKey: "\(PFUser.current()?.username!)name")
-        coder.encode(self.imageUrl, forKey: "\(PFUser.current()?.username!)imageURL")
-        coder.encode(self.sourceName, forKey: "\(PFUser.current()?.username!)sourceName")
-        coder.encode(self.sourceUrl, forKey: "\(PFUser.current()?.username!)sourceURL")
-        coder.encode(self.calories, forKey: "\(PFUser.current()?.username!)calories")
-        coder.encode(self.ingredients, forKey: "\(PFUser.current()?.username!)ingredients")
+        coder.encode(self.name, forKey: "\(PFUser.current()?.username)name")
+        coder.encode(self.imageUrl, forKey: "\(PFUser.current()?.username)imageURL")
+        coder.encode(self.sourceName, forKey: "\(PFUser.current()?.username)sourceName")
+        coder.encode(self.sourceUrl, forKey: "\(PFUser.current()?.username)sourceURL")
+        coder.encode(self.calories, forKey: "\(PFUser.current()?.username)calories")
+        coder.encode(self.ingredients, forKey: "\(PFUser.current()?.username)ingredients")
     }
 }
