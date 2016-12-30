@@ -1,18 +1,19 @@
 # Project 7 - *Resepi*
 
-**Resepi** is a recepies related app that allows one to develop cooking habits instead of eating outside. This app is especially useful for College Students who would love to develop healthy eating habits and save some money on their food. It present easy and quick to make recepies using the edamam api: https://developer.edamam.com/edamam-docs-recipe-api
+**Resepi** is a recipes related app that allows one to develop cooking habits instead of eating outside. This app is especially useful for College Students who would love to develop healthy eating habits and save some money on their food. It present easy and quick to make recipes using the edamam api: https://developer.edamam.com/edamam-docs-recipe-api
 
 Time spent: **5-6** weeks spent in total
 
 ## User Stories
 
-The following **required** functionality is complete:
+The following functionality has been implemented:
 
-- [x] 
-
-The following **optional** features are implemented:
-
-- [x] 
+- [x] When users open the app, they are presented with day to day recipes.
+- [x] The search bar at top of the recipes helps user search for specific recipes of their choice.
+- [x] Users can view brief details about a recipe by clicking on it. If they decide to make it, they can clicks the **Instructions** buttons on the detail screen to get all info about that recipe.
+- [x] Users also have the option to favorite a recipe if they decide to make it later. It is then added to the *Favorites* tab.
+- [x] In order to show users how much money and time they have saved over the last week by cooking themselves instead of eating out, a data screen is implemented.
+- [x] Data screen allows user to enter weekly data which is compared to older data to compute how much money and time a user saved or lost after using **Resepi**. This data is presented neatly in a graphical format along with a textual description. 
 
 ## Video Walkthrough 
 
