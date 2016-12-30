@@ -1,6 +1,6 @@
 # Project 7 - *Resepi*
 
-**Resepi** is a recepies realted app that allows one to develop cooking habits instead of eating outside. This app is especially useful for College Students who would love to develop healthy eating habits and save some money on their food. It present easy and quick to make recepies using the edamam api: https://developer.edamam.com/edamam-docs-recipe-api
+**Resepi** is a recepies related app that allows one to develop cooking habits instead of eating outside. This app is especially useful for College Students who would love to develop healthy eating habits and save some money on their food. It present easy and quick to make recepies using the edamam api: https://developer.edamam.com/edamam-docs-recipe-api
 
 Time spent: **5-6** weeks spent in total
 
